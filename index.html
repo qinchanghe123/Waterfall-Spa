@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>King Foot Massage</title>
+    <title>Waterfall Spa — Concord, CA</title>
     <meta
       name="description"
-      content="Experience ultimate relaxation at King Foot Massage, known for exceptional massages tailored to your needs. Clients love our serene environment, skilled therapists, and personalized care. Unwind and recharge with us."
+      content="Waterfall Spa in Concord, CA. Open daily 8:30 AM–10:00 PM. Body work massages: 30/45/60/90 min. Pay Cash & Save. Call (510) 322-1885."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,7 +16,7 @@
       rel="stylesheet"
     />
     <style>
-      /* Comfort Spa Stylesheet */
+      /* Waterfall Spa Stylesheet */
 
       /* Base Styles */
       body {
@@ -26,6 +26,7 @@
         background-color: #f9f9f9;
         color: #333;
         line-height: 1.6;
+        margin-top: 70px; /* keep content clear of fixed nav */
       }
 
       h1, h2, h3, h4, h5, h6 {
@@ -56,21 +57,12 @@
         justify-content: center;
         align-items: center;
         padding: 1rem;
-        background-color: #6B73FF; /* Calming purple-blue background */
+        background-color: #6B73FF;
         position: fixed;
         top: 0;
         width: 100%;
         z-index: 1000;
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      }
-
-      /* Add margin to the top of the body to avoid content being hidden behind the fixed nav */
-      body {
-        margin-top: 70px; /* Adjust based on nav height */
-      }
-
-      nav img {
-        height: 50px;
       }
 
       nav ul {
@@ -91,13 +83,13 @@
         transition: color 0.3s ease;
       }
 
-      nav ul li a:hover {
-        color: #FFD700;
-      }
+      nav ul li a:hover { color: #FFD700; }
 
-      /* Home Section */
+      /* Home Section — ensure 2.avif is visible */
       .home {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background-image:
+          linear-gradient(135deg, rgba(102, 126, 234, 0.35), rgba(118, 75, 162, 0.35)),
+          url("2.avif");
         background-size: cover;
         background-position: center;
         height: 100vh;
@@ -107,7 +99,6 @@
         justify-content: center;
         color: white;
         text-align: center;
-        margin-top: 70px;
         position: relative;
         overflow: hidden;
       }
@@ -115,218 +106,122 @@
       .home::before {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="white" opacity="0.1"><path d="M0,20 Q250,80 500,20 T1000,20 V100 H0 Z"/></svg>') repeat-x;
+        inset: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="white" opacity="0.10"><path d="M0,20 Q250,80 500,20 T1000,20 V100 H0 Z"/></svg>') repeat-x;
         background-size: 1000px 100px;
         animation: wave 10s linear infinite;
+        pointer-events: none;
       }
 
-      @keyframes wave {
-        0% { background-position-x: 0; }
-        100% { background-position-x: 1000px; }
-      }
+      @keyframes wave { 0%{background-position-x:0} 100%{background-position-x:1000px} }
 
       .home-content {
-        background-color: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(8px);
         padding: 40px;
         border-radius: 20px;
-        max-width: 800px;
+        max-width: 860px;
         margin-bottom: 30px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
       }
 
       .home h1 {
         font-size: 3.5rem;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         color: #FFD700;
         font-weight: 300;
         letter-spacing: 2px;
       }
 
-      .spa-tagline {
-        font-size: 1.3rem;
-        margin-bottom: 20px;
-        opacity: 0.9;
-        font-style: italic;
+      .spa-tagline { font-size: 1.15rem; margin: 6px 0 18px; opacity: 0.95; font-style: italic; }
+
+      .details-chip {
+        display: inline-block;
+        margin: 6px 8px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgba(0,0,0,0.35);
+        border: 1px solid rgba(255,255,255,0.35);
+        font-size: 0.95rem;
       }
 
-      /* Gallery Section */
-      #gallery {
-        background: linear-gradient(135deg, #f0f4ff 0%, #e1ecff 100%);
-        padding: 60px 20px;
-      }
+      /* Gallery Section (Carousel) */
+      #gallery { background: linear-gradient(135deg, #f0f4ff 0%, #e1ecff 100%); }
 
-      .gallery-container {
-        max-width: 1200px;
+      .carousel {
+        position: relative;
+        max-width: 1100px;
         margin: 0 auto;
       }
 
-      .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 25px;
-        margin: 40px 0;
-      }
-
-      .gallery-item {
-        position: relative;
+      .carousel-viewport {
         overflow: hidden;
-        border-radius: 15px;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        transition: all 0.3s ease;
-        cursor: pointer;
-        background: white;
-        aspect-ratio: 4/3;
+        border-radius: 16px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.12);
       }
 
-      .gallery-item:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease;
+        will-change: transform;
       }
 
-      .gallery-item img {
+      .slide {
+        min-width: 100%;
+        aspect-ratio: 16 / 9;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .slide img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.3s ease;
+        display: block;
       }
 
-      .gallery-item:hover img {
-        transform: scale(1.05);
-      }
-
-      .gallery-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(135deg, rgba(107, 115, 255, 0.8), rgba(118, 75, 162, 0.8));
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-
-      .gallery-item:hover .gallery-overlay {
-        opacity: 1;
-      }
-
-      .gallery-overlay-text {
-        color: white;
-        text-align: center;
-        padding: 20px;
-      }
-
-      .gallery-overlay h3 {
-        font-size: 1.5rem;
-        margin-bottom: 10px;
-        color: white;
-      }
-
-      .gallery-overlay p {
-        font-size: 1rem;
-        opacity: 0.9;
-      }
-
-      /* Modal for full-size image viewing */
-      .modal {
-        display: none;
-        position: fixed;
-        z-index: 2000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0,0,0,0.9);
-        animation: fadeIn 0.3s ease;
-      }
-
-      .modal.active {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-      }
-
-      .modal-content {
-        position: relative;
-        max-width: 90%;
-        max-height: 90%;
-        margin: auto;
-      }
-
-      .modal-content img {
-        width: 100%;
-        height: auto;
-        border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      }
-
-      .close-modal {
-        position: absolute;
-        top: -40px;
-        right: 0;
-        color: white;
-        font-size: 35px;
-        font-weight: bold;
-        cursor: pointer;
-        background: none;
-        border: none;
-        transition: color 0.3s ease;
-      }
-
-      .close-modal:hover {
-        color: #6B73FF;
-      }
-
-      .gallery-nav {
+      .carousel-btn {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        background: rgba(255,255,255,0.2);
-        backdrop-filter: blur(10px);
-        color: white;
+        background: rgba(255,255,255,0.85);
         border: none;
-        font-size: 24px;
-        padding: 15px 20px;
+        border-radius: 999px;
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
         cursor: pointer;
-        border-radius: 50%;
-        transition: all 0.3s ease;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.15);
       }
 
-      .gallery-nav:hover {
-        background: rgba(255,255,255,0.3);
-        transform: translateY(-50%) scale(1.1);
-      }
+      .carousel-btn:hover { background: #fff; }
+      .carousel-btn.prev { left: 12px; }
+      .carousel-btn.next { right: 12px; }
 
-      .prev-btn {
-        left: -60px;
-      }
-
-      .next-btn {
-        right: -60px;
-      }
-
-      /* Call and Book Online Section */
-      .contact-buttons {
+      .dots {
         display: flex;
-        gap: 20px;
         justify-content: center;
-        flex-wrap: wrap;
-        margin-top: 20px;
+        gap: 10px;
+        margin-top: 16px;
       }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 2px solid #6B73FF;
+        background: transparent;
+        cursor: pointer;
+      }
+
+      .dot.active { background: #6B73FF; }
+
+      /* Cards, booking, contact, etc. */
+      .contact-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
 
       .contact-card {
         background: rgba(255, 255, 255, 0.95);
@@ -340,17 +235,8 @@
         border: 1px solid rgba(255, 255, 255, 0.3);
       }
 
-      .contact-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 35px rgba(0,0,0,0.25);
-      }
-
-      .contact-card h3 {
-        color: #6B73FF;
-        font-size: 1.6rem;
-        margin-bottom: 15px;
-        font-weight: 500;
-      }
+      .contact-card:hover { transform: translateY(-8px); box-shadow: 0 12px 35px rgba(0,0,0,0.25); }
+      .contact-card h3 { color: #6B73FF; font-size: 1.6rem; margin-bottom: 15px; font-weight: 500; }
 
       .phone-number {
         font-size: 1.9rem;
@@ -361,17 +247,8 @@
         margin: 15px 0;
         transition: color 0.3s ease;
       }
+      .phone-number:hover { color: #667eea; }
 
-      .phone-number:hover {
-        color: #667eea;
-      }
-
-      .contact-card p {
-        color: #666;
-        line-height: 1.5;
-      }
-
-      /* Booking Form */
       .booking-form {
         display: none;
         background: rgba(255, 255, 255, 0.98);
@@ -386,341 +263,67 @@
         border: 1px solid rgba(255, 255, 255, 0.4);
       }
 
-      .booking-form.active {
-        display: block;
-        animation: slideIn 0.3s ease-out;
-      }
+      .booking-form.active { display: block; animation: slideIn 0.3s ease-out; }
+      @keyframes slideIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+      .form-row { display: flex; gap: 15px; }
+      .form-row .form-group { flex: 1; }
+      .form-group { margin-bottom: 20px; text-align: left; }
+      .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #555; font-size: 0.95rem; }
+      .form-group input,.form-group select,.form-group textarea { width: 100%; padding: 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease; background: rgba(255,255,255,0.8); }
+      .form-group input:focus,.form-group select:focus,.form-group textarea:focus { outline: none; border-color: #6B73FF; background: #fff; box-shadow: 0 0 0 3px rgba(107,115,255,0.1); }
 
-      @keyframes slideIn {
-        from { opacity: 0; transform: translateY(-20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
+      .close-form { position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 28px; cursor: pointer; color: #999; }
+      .close-form:hover { color: #333; transform: scale(1.1); }
 
-      .booking-form h3 {
-        color: #6B73FF;
-        margin-bottom: 25px;
-        font-size: 2rem;
-        font-weight: 400;
-      }
-
-      .form-group {
-        margin-bottom: 20px;
-        text-align: left;
-      }
-
-      .form-group label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: 600;
-        color: #555;
-        font-size: 0.95rem;
-      }
-
-      .form-group input,
-      .form-group select,
-      .form-group textarea {
-        width: 100%;
-        padding: 15px;
-        border: 2px solid #e0e0e0;
-        border-radius: 10px;
-        font-size: 1rem;
-        font-family: inherit;
-        transition: all 0.3s ease;
-        box-sizing: border-box;
-        background: rgba(255, 255, 255, 0.8);
-      }
-
-      .form-group input:focus,
-      .form-group select:focus,
-      .form-group textarea:focus {
-        outline: none;
-        border-color: #6B73FF;
-        background: white;
-        box-shadow: 0 0 0 3px rgba(107, 115, 255, 0.1);
-      }
-
-      .form-row {
-        display: flex;
-        gap: 15px;
-      }
-
-      .form-row .form-group {
-        flex: 1;
-      }
-
-      .close-form {
-        position: absolute;
-        top: 15px;
-        right: 20px;
-        background: none;
-        border: none;
-        font-size: 28px;
-        cursor: pointer;
-        color: #999;
-        transition: color 0.3s ease;
-      }
-
-      .close-form:hover {
-        color: #333;
-        transform: scale(1.1);
-      }
-
-      /* Button Styles */
       .book-button, .call-button {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        padding: 15px 30px;
-        border: none;
-        border-radius: 25px;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 1.1rem;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        margin: 10px;
-        cursor: pointer;
-        text-align: center;
-        box-shadow: 0 4px 15px rgba(107, 115, 255, 0.3);
+        color: white; padding: 15px 30px; border: none; border-radius: 25px; text-decoration: none; display: inline-block; font-size: 1.1rem; font-weight: 600; transition: all 0.3s ease; margin: 10px; cursor: pointer; text-align: center; box-shadow: 0 4px 15px rgba(107,115,255,0.3);
       }
+      .book-button:hover, .call-button:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(107,115,255,0.4); }
 
-      .book-button:hover, .call-button:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 20px rgba(107, 115, 255, 0.4);
+      .submit-btn { background: linear-gradient(135deg, #6B73FF 0%, #764ba2 100%); color: #fff; padding: 18px 35px; border: none; border-radius: 25px; font-size: 1.2rem; font-weight: 600; cursor: pointer; width: 100%; transition: all 0.3s ease; margin-top: 15px; box-shadow: 0 4px 15px rgba(107,115,255,0.3); }
+      .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(107,115,255,0.4); }
+
+      .services { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin: 40px 0; }
+      #services { background: linear-gradient(135deg, #f5f7ff 0%, #e8f2ff 100%); }
+      #specials { background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%); }
+
+      .service-box {
+        background: white; margin: 10px; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); width: 320px; transition: all 0.3s ease; border: 1px solid rgba(107,115,255,0.1);
       }
+      .service-box:hover { transform: translateY(-8px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); border-color: rgba(107,115,255,0.3); }
+      .service-box h3 { color: #6B73FF; font-size: 1.6rem; margin-bottom: 15px; font-weight: 500; }
+      .service-box p { color: #666; line-height: 1.7; }
 
-      .submit-btn {
-        background: linear-gradient(135deg, #6B73FF 0%, #764ba2 100%);
-        color: white;
-        padding: 18px 35px;
-        border: none;
-        border-radius: 25px;
-        font-size: 1.2rem;
-        font-weight: 600;
-        cursor: pointer;
-        width: 100%;
-        transition: all 0.3s ease;
-        margin-top: 15px;
-        box-shadow: 0 4px 15px rgba(107, 115, 255, 0.3);
-      }
+      .price-wrapper { margin-top: 20px; background: linear-gradient(135deg, #f8f9ff 0%, #eef1ff 100%); padding: 15px; border-radius: 10px; display: none; min-height: 100px; border-left: 4px solid #6B73FF; }
+      .service-box:hover .price-wrapper { display: block; }
+      .price-wrapper h4 { margin: 5px 0; color: #333; font-size: 1.1rem; }
 
-      .submit-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(107, 115, 255, 0.4);
-      }
+      #contact { background: linear-gradient(135deg, #e8f5e9 0%, #d4eddb 100%); }
+      .appointment-card { display: flex; justify-content: center; flex-wrap: wrap; gap: 24px; max-width: 1200px; margin: 0 auto; }
+      .appointment-map { display: flex; flex-direction: column; align-items: center; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid rgba(107,115,255,0.1); max-width: 960px; width: 100%; }
+      .appointment-info { margin-top: 24px; text-align: left; width: 100%; }
+      .appointment-info p { margin: 10px 0; font-size: 1.1rem; color: #555; }
+      .appointment-info a { color: #6B73FF; text-decoration: none; font-weight: 600; }
+      .appointment-info a:hover { color: #764ba2; text-decoration: underline; }
 
-      /* Services and Reviews Containers */
-      .services, .reviews-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 25px;
-        margin: 40px 0;
-      }
+      footer { background: linear-gradient(135deg, #333 0%, #555 100%); color: white; text-align: center; padding: 30px 0; margin-top: 50px; }
 
-      #services {
-        background: linear-gradient(135deg, #f5f7ff 0%, #e8f2ff 100%);
-      }
-
-      #specials {
-        background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%);
-      }
-
-      #specials .services {
-        background: transparent;
-      }
-
-      /* Service Box and Review Card */
-      .service-box, .review-card {
-        background: white;
-        margin: 10px;
-        padding: 30px;
-        border-radius: 15px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        width: 320px;
-        transition: all 0.3s ease;
-        border: 1px solid rgba(107, 115, 255, 0.1);
-      }
-
-      .service-box:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        border-color: rgba(107, 115, 255, 0.3);
-      }
-
-      .service-box h3, .review-card h3 {
-        color: #6B73FF;
-        font-size: 1.6rem;
-        margin-bottom: 15px;
-        font-weight: 500;
-      }
-
-      .service-box p, .review-card p {
-        color: #666;
-        line-height: 1.7;
-      }
-
-      /* Price Wrapper */
-      .service-box .price-wrapper {
-        margin-top: 20px;
-        background: linear-gradient(135deg, #f8f9ff 0%, #eef1ff 100%);
-        padding: 15px;
-        border-radius: 10px;
-        display: none;
-        min-height: 100px;
-        border-left: 4px solid #6B73FF;
-      }
-
-      .price-wrapper h4 {
-        margin: 5px 0;
-        color: #333;
-        font-size: 1.1rem;
-      }
-
-      /* Contact Section */
-      #contact {
-        background: linear-gradient(135deg, #e8f5e9 0%, #d4eddb 100%);
-      }
-
-      .appointment-card {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      .appointment-map {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background: white;
-        padding: 40px;
-        border-radius: 20px;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        border: 1px solid rgba(107, 115, 255, 0.1);
-      }
-
-      .appointment-info {
-        margin-top: 30px;
-        text-align: left;
-        width: 100%;
-      }
-
-      .appointment-info p {
-        margin: 15px 0;
-        font-size: 1.2rem;
-        color: #555;
-      }
-
-      .appointment-info a {
-        color: #6B73FF;
-        text-decoration: none;
-        transition: color 0.3s ease;
-        font-weight: 600;
-      }
-
-      .appointment-info a:hover {
-        color: #764ba2;
-        text-decoration: underline;
-      }
-
-      .appointment-map h3 {
-        margin-top: 25px;
-        color: #6B73FF;
-        font-size: 1.4rem;
-        font-weight: 500;
-      }
-
-      /* Footer */
-      footer {
-        background: linear-gradient(135deg, #333 0%, #555 100%);
-        color: white;
-        text-align: center;
-        padding: 30px 0;
-        margin-top: 50px;
-      }
-
-      /* Responsive Design */
+      /* Responsive */
       @media (max-width: 768px) {
-        nav {
-          flex-direction: column;
-          padding: 15px;
-        }
-        
-        nav ul {
-          margin-top: 15px;
-        }
-        
-        .home h1 {
-          font-size: 2.5rem;
-        }
-
-        .contact-buttons {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .contact-card {
-          min-width: auto;
-          width: 90%;
-          max-width: 400px;
-        }
-
-        .form-row {
-          flex-direction: column;
-        }
-        
-        .service-box, .review-card {
-          width: 100%;
-          max-width: 400px;
-        }
-
-        .gallery-grid {
-          grid-template-columns: 1fr;
-          gap: 20px;
-        }
-
-        .gallery-nav {
-          display: none;
-        }
-
-        .modal-content {
-          max-width: 95%;
-          max-height: 85%;
-        }
+        nav { flex-direction: column; padding: 15px; }
+        nav ul { margin-top: 15px; }
+        .home h1 { font-size: 2.5rem; }
+        .contact-buttons { flex-direction: column; align-items: center; }
+        .service-box { width: 100%; max-width: 420px; }
       }
 
       @media (max-width: 480px) {
-        section {
-          padding: 40px 15px;
-        }
-        
-        section h2 {
-          font-size: 2rem;
-        }
-        
-        .home-content {
-          padding: 25px;
-        }
-        
-        .home h1 {
-          font-size: 2rem;
-        }
-        
-        .book-button, .call-button {
-          padding: 12px 25px;
-          font-size: 1rem;
-        }
-
-        .phone-number {
-          font-size: 1.6rem;
-        }
-
-        .gallery-grid {
-          grid-template-columns: 1fr;
-          gap: 15px;
-          margin: 20px 0;
-        }
+        section { padding: 40px 15px; }
+        section h2 { font-size: 2rem; }
+        .home-content { padding: 25px; }
+        .home h1 { font-size: 2rem; }
+        .phone-number { font-size: 1.6rem; }
       }
     </style>
   </head>
@@ -731,7 +334,7 @@
       <ul>
         <li><a href="#services">Services</a></li>
         <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#specials">Specials</a></li>
+        <li><a href="#specials">Prices</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -739,20 +342,21 @@
     <!-- Home Section -->
     <section id="home" class="home">
       <div class="home-content">
-        <h1>King Foot Massage</h1>
+        <h1>Waterfall Spa</h1>
         <p class="spa-tagline">Your sanctuary of tranquility and rejuvenation</p>
+        <div class="details-chip">Open Daily: 8:30 AM – 10:00 PM</div>
+        <div class="details-chip">Pay Cash & Save</div>
+        <div class="details-chip">1801 Sutter St #G, Concord, CA 94520</div>
       </div>
 
       <!-- Call and Book Online Cards -->
       <div class="contact-buttons">
-        <!-- Call Card -->
         <div class="contact-card">
           <h3>📞 Call for Appointment</h3>
-          <a href="tel:+1-469-639-0889" class="phone-number">469-639-0889</a>
-          <p>Speak directly with our friendly staff to schedule your perfect massage experience within 30 minutes.</p>
+          <a href="tel:+15103221885" class="phone-number">(510) 322-1885</a>
+          <p>Speak directly with our friendly staff to schedule your massage. Same-day appointments available.</p>
         </div>
 
-        <!-- Book Online Card -->
         <div class="contact-card">
           <h3>💻 Book Online</h3>
           <button class="book-button" onclick="showBookingForm()">Schedule Now</button>
@@ -761,8 +365,8 @@
       </div>
 
       <!-- Booking Form (Initially Hidden) -->
-      <div id="bookingForm" class="booking-form">
-        <button class="close-form" onclick="hideBookingForm()">&times;</button>
+      <div id="bookingForm" class="booking-form" aria-hidden="true">
+        <button class="close-form" onclick="hideBookingForm()" aria-label="Close booking form">&times;</button>
         <h3>Schedule Your Visit</h3>
         <form onsubmit="submitBooking(event)">
           <div class="form-row">
@@ -805,36 +409,19 @@
             </div>
             <div class="form-group">
               <label for="time">Preferred Time *</label>
-              <input type="time" id="time" name="time" min="09:00" max="22:00" required>
+              <input type="time" id="time" name="time" min="08:30" max="22:00" step="900" required>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="service">Preferred Service</label>
+            <label for="service">Service (Body Work)</label>
             <select id="service" name="service">
-              <option value="">Select a Service</option>
-              <option value="Full Body Massage (Swedish/Deep Tissue) - 30min">Full Body Massage (30min) - $50 Cash/$55 Card</option>
-              <option value="Full Body Massage (Swedish/Deep Tissue) - 60min">Full Body Massage (60min) - $70 Cash/$75 Card</option>
-              <option value="Full Body Massage (Swedish/Deep Tissue) - 90min">Full Body Massage (90min) - $100 Cash/$105 Card</option>
-              <option value="Combo Special (Body+Foot) - 60min">Combo Special (Body+Foot) 60min - $70 Cash/$75 Card</option>
-              <option value="Combo Special (Body+Foot) - 90min">Combo Special (Body+Foot) 90min - $100 Cash/$105 Card</option>
-              <option value="Foot Massage (cloth on) - 30min">Foot Massage (30min) - $35 Cash/$40 Card</option>
-              <option value="Foot Massage (Head+Arm+Foot+Back) - 60min">Foot Massage (Head+Arm+Foot+Back) 60min - $60 Cash/$65 Card</option>
-              <option value="Foot Massage (Head+Arm+Foot+Back) - 90min">Foot Massage (Head+Arm+Foot+Back) 90min - $90 Cash/$95 Card</option>
-              <option value="Chair Massage - 15min">Chair Massage (15min) - $20</option>
-              <option value="Chair Massage - 20min">Chair Massage (20min) - $30</option>
-              <option value="Chair Massage - 30min">Chair Massage (30min) - $40</option>
+              <option value="">Select a Duration</option>
+              <option>30 min — $50 Cash / $53 Card</option>
+              <option>45 min — $60 Cash / $63 Card</option>
+              <option>60 min — $70 Cash / $73 Card</option>
+              <option>90 min — $120 Cash / $123 Card</option>
             </select>
-          </div>
-
-          <div class="form-group">
-            <label for="addons">Add-ons (Optional)</label>
-            <select id="addons" name="addons" multiple>
-              <option value="Hot Stone (+$10)">Hot Stone (+$10)</option>
-              <option value="Essential Oil (+$10)">Essential Oil (+$10)</option>
-              <option value="CBD Oil/Cream (+$10)">CBD Oil/Cream (+$10)</option>
-            </select>
-            <small style="color: #666;">Hold Ctrl (PC) or Cmd (Mac) to select multiple options</small>
           </div>
 
           <div class="form-group">
@@ -853,45 +440,202 @@
     <!-- Services Section -->
     <section id="services">
       <h2>Our Massage Services</h2>
-      <h4>Hover or tap for detailed pricing information</h4>
+      <h4>Body Work massage with transparent pricing — hover/tap to view details</h4>
+
       <div class="services">
         <div class="service-box">
-          <h3>Full Body Massage</h3>
-          <p>
-            Choose between Swedish relaxation or Deep Tissue therapy massage to target your specific needs and preferences.
-          </p>
+          <h3>Body Work</h3>
+          <p>Relaxing, restorative full-body massage tailored to your preferences.</p>
           <div class="price-wrapper">
-            <h4>30 min: $50 Cash / $55 Card</h4>
-            <h4>60 min: $70 Cash / $75 Card</h4>
-            <h4>90 min: $100 Cash / $105 Card</h4>
+            <h4>30 min: $50 Cash / $53 Card</h4>
+            <h4>45 min: $60 Cash / $63 Card</h4>
+            <h4>60 min: $70 Cash / $73 Card</h4>
+            <h4>90 min: $120 Cash / $123 Card</h4>
           </div>
         </div>
 
         <div class="service-box">
-          <h3>Combo Special (Body + Foot)</h3>
-          <p>
-            Get the best of both worlds with our combination massage that includes both body and foot massage for complete relaxation.
-          </p>
+          <h3>Open Hours</h3>
+          <p>We're open every day for your convenience.</p>
           <div class="price-wrapper">
-            <h4>60 min: $70 Cash / $75 Card</h4>
-            <h4>90 min: $100 Cash / $105 Card</h4>
+            <h4>Monday – Sunday</h4>
+            <h4>8:30 AM – 10:00 PM</h4>
+            <h4 style="margin-top:10px;">Note: <em>Pay Cash & Save</em></h4>
           </div>
         </div>
 
         <div class="service-box">
-          <h3>Foot Massage</h3>
-          <p>
-            Our signature foot massage with cloth on, or comprehensive treatment including Head, Arm, Foot and Back massage.
-          </p>
+          <h3>Contact</h3>
+          <p>Call us to ask about availability, couples, or group appointments.</p>
           <div class="price-wrapper">
-            <h4>30 min (cloth on): $35 Cash / $40 Card</h4>
-            <h4>60 min (Head+Arm+Foot+Back): $60 Cash / $65 Card</h4>
-            <h4>90 min (Head+Arm+Foot+Back): $90 Cash / $95 Card</h4>
+            <h4>Phone: (510) 322-1885</h4>
+            <h4>Address: 1801 Sutter St #G, Concord, CA 94520</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section (Carousel with provided images) -->
+    <section id="gallery">
+      <h2>Gallery</h2>
+      <h4>Swipe or use arrows to browse</h4>
+
+      <div class="carousel" aria-roledescription="carousel">
+        <div class="carousel-viewport">
+          <div class="carousel-track" id="carouselTrack">
+            <div class="slide">
+              <img
+                src="https://spaandmassage.co.uk/wp-content/uploads/2025/08/guided_foot_pressure_points_ut1pv.jpg"
+                alt="Guided foot pressure points chart"
+                loading="lazy"
+              />
+            </div>
+            <div class="slide">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1L-0O6Juxasb8QicSAXdnWLSQjLrVvGVr8HPij_dvsgW7cWCeMVBGB-12hqGhPUkx5oA&usqp=CAU"
+                alt="Relaxing foot massage"
+                loading="lazy"
+              />
+            </div>
+            <div class="slide">
+              <img
+                src="https://images.squarespace-cdn.com/content/v1/5d5f2058a79cbf000111652a/1586842536251-IY8XEBZ4JINBCSKZKAHT/FaceMassage.jpg"
+                alt="Face massage therapy"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
 
-        <div class="service-box">
-          <h3>Chair Massage</h3>
-          <p>
-            Quick and convenient chair massage perfect for targeting neck, shoulders, and back tension during your busy day.
-          </p>
+        <button class="carousel-btn prev" id="prevBtn" aria-label="Previous slide">❮</button>
+        <button class="carousel-btn next" id="nextBtn" aria-label="Next slide">❯</button>
+
+        <div class="dots" id="dots" aria-label="Slide indicators">
+          <button class="dot active" aria-label="Go to slide 1"></button>
+          <button class="dot" aria-label="Go to slide 2"></button>
+          <button class="dot" aria-label="Go to slide 3"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prices callout -->
+    <section id="specials">
+      <h2>Prices</h2>
+      <h4>Pay Cash & Save</h4>
+      <div class="services" style="gap:16px;">
+        <div class="service-box" style="width: auto;">
+          <h3>Body Work</h3>
+          <div class="price-wrapper" style="display:block;">
+            <h4>30 min — $50 Cash / $53 Card</h4>
+            <h4>45 min — $60 Cash / $63 Card</h4>
+            <h4>60 min — $70 Cash / $73 Card</h4>
+            <h4>90 min — $120 Cash / $123 Card</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact & Location</h2>
+      <div class="appointment-card">
+        <div class="appointment-map">
+          <iframe
+            title="Waterfall Spa Location"
+            width="100%"
+            height="360"
+            style="border:0;border-radius:12px;"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=1801+Sutter+St+%23G,+Concord,+CA+94520&output=embed">
+          </iframe>
+
+          <h3>Waterfall Spa</h3>
+          <div class="appointment-info">
+            <p><strong>Address:</strong> 1801 Sutter St #G, Concord, CA 94520</p>
+            <p><strong>Hours:</strong> Monday – Sunday, 8:30 AM – 10:00 PM</p>
+            <p><strong>Phone:</strong> <a href="tel:+15103221885">(510) 322-1885</a></p>
+            <p><a href="https://maps.google.com/?q=1801+Sutter+St+%23G,+Concord,+CA+94520" target="_blank" rel="noopener">Open in Google Maps</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© <span id="year"></span> Waterfall Spa • Concord, California</p>
+    </footer>
+
+    <script>
+      // Footer year
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Booking form logic
+      function showBookingForm() {
+        const form = document.getElementById('bookingForm');
+        form.classList.add('active');
+        form.setAttribute('aria-hidden', 'false');
+      }
+      function hideBookingForm() {
+        const form = document.getElementById('bookingForm');
+        form.classList.remove('active');
+        form.setAttribute('aria-hidden', 'true');
+      }
+      function submitBooking(e) {
+        e.preventDefault();
+        alert('Thanks! We will contact you within 30 minutes to confirm your appointment.');
+        hideBookingForm();
+        e.target.reset();
+      }
+
+      // Carousel logic
+      const track = document.getElementById('carouselTrack');
+      const slides = Array.from(track.children);
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const dots = Array.from(document.getElementById('dots').children);
+      let index = 0;
+      let timer = null;
+
+      function updateCarousel(i) {
+        index = (i + slides.length) % slides.length;
+        track.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach((d, idx) => d.classList.toggle('active', idx === index));
+      }
+
+      function next() { updateCarousel(index + 1); }
+      function prev() { updateCarousel(index - 1); }
+
+      nextBtn.addEventListener('click', next);
+      prevBtn.addEventListener('click', prev);
+      dots.forEach((d, idx) => d.addEventListener('click', () => updateCarousel(idx)));
+
+      // Auto-play
+      function startAuto() { timer = setInterval(next, 4500); }
+      function stopAuto() { clearInterval(timer); }
+      startAuto();
+
+      // Pause on hover/focus
+      const carousel = document.querySelector('.carousel');
+      ['mouseenter','focusin','touchstart'].forEach(ev => carousel.addEventListener(ev, stopAuto));
+      ['mouseleave','focusout','touchend'].forEach(ev => carousel.addEventListener(ev, startAuto));
+
+      // Basic swipe support
+      let startX = null;
+      track.addEventListener('pointerdown', e => { startX = e.clientX; track.setPointerCapture(e.pointerId); });
+      track.addEventListener('pointerup', e => {
+        if (startX === null) return;
+        const dx = e.clientX - startX;
+        if (dx > 40) prev();
+        else if (dx < -40) next();
+        startX = null;
+      });
+
+      // Keyboard support
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') prev();
+        if (e.key === 'ArrowRight') next();
+      });
+    </script>
+  </body>
+</html>
